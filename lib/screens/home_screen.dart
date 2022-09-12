@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:glassmorphism/glassmorphism.dart';
 import 'package:moviesapp/components/masking_image.dart';
 
 import '../components/search_field_widget.dart';
@@ -198,6 +200,102 @@ class HomeScreen extends StatelessWidget {
                 ],
               ))
         ]),
+      ),
+      floatingActionButton: Container(
+        height: 64,
+        width: 64,
+        padding: const EdgeInsets.all(4),
+        margin: const EdgeInsets.only(top: 40),
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Constants.kPinkColor.withOpacity(0.2),
+              Constants.kGreenColor.withOpacity(0.2),
+            ],
+          ),
+        ),
+        child: Container(
+          height: 60,
+          width: 60,
+          padding: const EdgeInsets.all(4),
+          decoration: const BoxDecoration(
+            shape: BoxShape.circle,
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Constants.kPinkColor,
+                Constants.kGreenColor,
+              ],
+            ),
+          ),
+          child: RawMaterialButton(
+            onPressed: () {},
+            shape: const CircleBorder(),
+            fillColor: Color(0xff404c57),
+            child: SvgPicture.asset(Constants.kIconPlus),
+          ),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: GlassmorphicContainer(
+        height: 70,
+        width: screenWeight,
+        borderRadius: 0,
+        border: 0,
+        linearGradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            Constants.kPinkColor.withOpacity(0.1),
+            Constants.kGreenColor.withOpacity(0.1),
+          ],
+        ),
+        blur: 30,
+        borderGradient: const LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            Constants.kPinkColor,
+            Constants.kGreenColor,
+          ],
+        ),
+        child: BottomAppBar(
+          color: Colors.transparent,
+          notchMargin: 4,
+          elevation: 0,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                  child: IconButton(
+                onPressed: () {},
+                icon: SvgPicture.asset(Constants.kIconHome),
+              )),
+              Expanded(
+                  child: IconButton(
+                onPressed: () {},
+                icon: SvgPicture.asset(Constants.kIconPlayOnTv),
+              )),
+              Expanded(
+                child: Text(""),
+              ),
+              Expanded(
+                  child: IconButton(
+                onPressed: () {},
+                icon: SvgPicture.asset(Constants.kIconCategories),
+              )),
+              Expanded(
+                  child: IconButton(
+                onPressed: () {},
+                icon: SvgPicture.asset(Constants.kIconDownload),
+              ))
+            ],
+          ),
+        ),
       ),
     );
   }
